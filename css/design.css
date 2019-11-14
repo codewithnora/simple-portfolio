@@ -1,0 +1,189 @@
+html,body,ul{
+  margin:0;
+  padding: 0;
+}
+
+body {
+  background-color: #000;
+}
+
+.bc-slideshow,
+.bc-slideshow:after { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0; 
+}
+
+.bc-slideshow li span { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position:center top;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    -webkit-animation: imageAnimation 36s linear infinite 0s;
+            animation: imageAnimation 36s linear infinite 0s; 
+}
+
+.bc-slideshow li:nth-child(1) span { 
+    background-image: url("../img/bg/img_1.png"); /*your first background image*/
+}
+.bc-slideshow li:nth-child(2) span { 
+    background-image: url("../img/bg/img_2.jpg"); /*your second background image*/
+    -webkit-animation-delay: 9s;
+            animation-delay: 9s; 
+}
+.bc-slideshow li:nth-child(3) span { 
+    background-image: url("../img/bg/img_3.jpg");/*your third background image*/
+    background-position: center center;
+    -webkit-animation-delay: 18s;
+            animation-delay: 18s;  
+}
+.bc-slideshow li:nth-child(4) span { 
+    background-image: url("../img/bg/img_4.jpg");/*your fourth background image*/
+    -webkit-animation-delay: 27s;
+            animation-delay: 27s;
+}
+
+@-webkit-keyframes imageAnimation { 
+    0% { opacity: 0; -webkit-animation-timing-function: ease-in; animation-timing-function: ease-in; }
+    5,5% { opacity: 1; -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; }
+    12% { opacity: 1 }
+    55% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+@keyframes imageAnimation { 
+    0% { opacity: 0; -webkit-animation-timing-function: ease-in; animation-timing-function: ease-in; }
+    5,5% { opacity: 1; -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; }
+    12% { opacity: 1 }
+    55% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  display: block;
+  position: relative;
+  z-index:5;
+  margin: 50px;
+  padding: 5px;
+}
+
+.media img, .close img {
+  width: 30px;
+  height: 30px;
+}
+
+.media li {
+  display: inline-block;
+  margin: 5px;
+}
+
+.media a{
+  color: #ffffff;
+}
+
+.close {
+  color: #000000;
+}
+
+h2, h1 {
+  font-family:Roboto, sans-serif;;
+  color: #fff;
+  text-align: left;
+  margin-left: 5%;
+}
+
+nav {
+  display: block;
+  position: absolute;
+  top: 25%;
+  right: 10%;
+}
+
+.social:hover{
+  opacity: 0.7;
+}
+
+/* MODAL ABOUT*/
+.modalDialog {
+  display:none;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #fff;
+  opacity: 0.6;
+  z-index: 200;
+}
+
+
+#modalContentScroll {
+  height: 100%;
+}
+
+.modalDialog:target {
+  display:block;
+}
+
+/*close modal*/
+.close {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  z-index: 5;
+}
+
+#bio, #news {
+  padding: 2rem 3rem 1rem 1rem;
+  font-family:Roboto, sans-serif;
+  line-height: 1.5em;
+}
+
+
+@media screen and (max-width: 700px){
+  nav {
+  top: 100%;
+  left: 5%;
+  }
+  
+  .modalDialog {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+  }
+  
+  .modalDialog p {
+    font-size: 1.1em;
+  }
+  
+  .modalDialog p#bio {
+    padding-top: 4rem;
+  }
+  
+  .close {
+    color: #ffffff;
+  }
+
+}
